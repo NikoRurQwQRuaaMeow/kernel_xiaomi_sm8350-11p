@@ -1,4 +1,4 @@
-name: XiaoMi11Pro ShirokoNeko Kernel Building
+name: XiaoMi11Pro ShirokoNeko test Kernel Building
 env:
   TZ: Asia/Shanghai
   CPU: 'sm8350'
