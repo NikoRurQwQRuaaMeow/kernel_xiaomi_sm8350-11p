@@ -107,6 +107,7 @@ jobs:
           echo "CONFIG_KSU=y" >> ./arch/arm64/configs/gki_defconfig
           echo "CONFIG_KSU_MANUAL_HOOK=y" >> ./arch/arm64/configs/gki_defconfig
           sed -i 's/check_defconfig//' ./build.config.gki
+          patch -p1 < ksu_hooks_sukisu_4.19.patch
       
       - name: 添加制作名称
         run: |
