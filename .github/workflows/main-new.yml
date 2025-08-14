@@ -1,4 +1,4 @@
-name: XiaoMi11Pro ShirokoNeko Kernel Building
+name: XiaoMi11Pro ShirokoNeko Kernel Building-New-test
 env:
   TZ: Asia/Shanghai
   CPU: 'sm8350'
@@ -136,17 +136,8 @@ jobs:
           export LLVM=1
           export LLVM_IAS=0
           export KCFLAGS="-Wno-error -Wno-deprecated-declarations"
-          
-          make O=out gki_defconfig
-          make -j$(nproc --all) O=out \
-            CC=clang \
-            LD=ld.lld \
-            AR=llvm-ar \
-            NM=llvm-nm \
-            OBJCOPY=llvm-objcopy \
-            STRIP=llvm-strip \
-            HOSTCC=clang \
-            HOSTLD=ld.lld
+          make LLVM=1 LLVM_IAS=1 ARCH=arm64 CC="clang" O=out gki_defconfig
+          make -j24 O=out ARCH=arm64 CC=clang LLVM=1 LLVM_IAS=1
       
       - name: 克隆 AnyKernel3 并打包
         run: |
