@@ -40,7 +40,6 @@ jobs:
       
       - name: 安装配置环境依赖
         run: |
-          lscpu
           sudo apt update -y
           sudo apt install -y \
             build-essential \
@@ -63,8 +62,11 @@ jobs:
             ccache \
             rsync \
             binutils-aarch64-linux-gnu \
-            binutils-arm-linux-gnueabihf
+            binutils-arm-linux-gnueabihf \
+            neofetch
 
+          lscpu
+          neofetch
           wget -q https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/android-11.0.0_r3/clang-r383902b.tar.gz
           mkdir -p aosp-clang
           tar -xzf clang-r383902b.tar.gz -C aosp-clang
