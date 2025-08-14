@@ -29,7 +29,6 @@ jobs:
     steps:
       - name: 最大化建筑空间
         uses: easimon/maximize-build-space@master
-        lscpu
         with:
           root-reserve-mb: 8192
           temp-reserve-mb: 2048
@@ -41,6 +40,7 @@ jobs:
       
       - name: 安装配置环境依赖
         run: |
+          lscpu
           sudo apt update -y
           sudo apt install -y \
             build-essential \
