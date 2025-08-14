@@ -29,6 +29,7 @@ jobs:
     steps:
       - name: 最大化建筑空间
         uses: easimon/maximize-build-space@master
+        lscpu
         with:
           root-reserve-mb: 8192
           temp-reserve-mb: 2048
